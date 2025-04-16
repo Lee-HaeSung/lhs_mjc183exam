@@ -82,3 +82,35 @@
 //}
 //
 //console.log(newString);
+
+//놀이기구 키 제한
+class tallLimit{
+    height = 0;
+
+    pass() {
+        this.height = prompt("키를 입력해주세요");
+        if (this.height > 150)
+            console.log("YES");
+        else
+            console.log("NO");
+    }
+}
+
+let tall = new tallLimit();
+tall.pass();
+
+//평균 점수
+class average{
+    score = [];
+
+    scoreAver() {
+        this.score = prompt("키를 입력해주세요");
+        for(let i = 0; i<this.score.length; i++)
+            if(this.score[i] != " ")
+            this.score.push(this.score)
+            else
+
+    }
+//    randomNum = Math.floor(Math.random()*(45-1)+1);
+//    if (randomPick.indexOf(randomNum) === -1) {
+//        randomPick.push(randomNum);
