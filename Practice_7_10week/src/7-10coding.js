@@ -99,29 +99,86 @@
 //let tall = new tallLimit();
 //tall.pass();
 
-//평균 점수 구하기
-class Average {
-    constructor() {
-        this.scores = [];
-        this.sum = 0;
-    }
+////평균 점수 구하기
+//class Average {
+//    constructor() {
+//        this.scores = [];
+//        this.sum = 0;
+//    }
+//
+//    scoreAver() {
+//        let input = prompt("점수들을 입력해주세요 (쉼표로 구분):"); // 예: 80,90,70
+//        this.scores = input.split(" ").map(Number); // 문자열 → 숫자 배열로 변환
+//
+//        for (let i = 0; i < this.scores.length; i++) {
+//            this.sum += this.scores[i];
+//        }
+//
+//        let average = this.sum / this.scores.length;
+//        console.log("평균 점수는:", average);
+//    }
+//}
+//
+//// 인스턴스 생성 후 호출
+//let avg = new Average();
+//avg.scoreAver();
 
-    scoreAver() {
-        let input = prompt("점수들을 입력해주세요 (쉼표로 구분):"); // 예: 80,90,70
-        this.scores = input.split(" ").map(Number); // 문자열 → 숫자 배열로 변환
 
-        for (let i = 0; i < this.scores.length; i++) {
-            this.sum += this.scores[i];
-        }
+////19번: 제곱을 구하자
+//class Square {
+//    constructor() {
+//    this.squ = [];
+//    }
+//
+//    numSquare() {
+//        this.num = prompt("제곱할 a와 b를 입력해주세요 (공백으로 구분).");
+//        this.squ = this.num.split(" ").map(Number);
+//
+//        let o = this.squ[0] ** this.squ[1];
+//        console.log("a ** b = " + o);
+//    }
+//}
+//
+//let p = new Square();
+//p.numSquare();
 
-        let average = this.sum / this.scores.length;
-        console.log("평균 점수는:", average);
+
+////25번: 원의 넓이를 구하세요
+//class CircleArea {
+//    constructor() {
+//    this.c = 0;
+//    }
+//
+//    CArea() {
+//        this.cir = prompt("원의 반지름을 입력해주세요.");
+//        this.c = parseInt(this.cir);
+//
+//        let ci = this.c * this.c * 3.14;
+//        console.log("원의 넓이는 :" + ci);
+//    }
+//}
+//
+//let CA = new CircleArea();
+//CA.CArea();
+
+//26번: 행성 문제2
+class Star {
+    transStar(){
+    this.starP = prompt("행성이름을 입력해주세요(한글).");
+    let planet = new Map([
+    ["수성", "Mercury"],
+    ["금성", "Venus"],
+    ["지구", "Earth"],
+    ["화성", "Mars"],
+    ["목성", "Jupiter"],
+    ["토성", "Saturn"],
+    ["천왕성", "Uranus"],
+    ["해왕성", "Neptune"]
+    ]);
+    console.log(planet.get(this.starP));
     }
 }
-
-// 인스턴스 생성 후 호출
-let avg = new Average();
-avg.scoreAver();
-
+let SP = new Star();
+SP.transStar();
 
 
