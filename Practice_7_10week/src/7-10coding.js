@@ -221,21 +221,125 @@
 //    exam.outputFunc();  // outputFunc() 를 실행한다.
 //}
 
-//28번 : 2-gram
-class Ex28 {
-    strInput = ""; //문자열 초기화 및 생성
+////28번 : 2-gram
+//class Ex28 {
+//    strInput = ""; //문자열 초기화 및 생성
+//
+//    constructor(str){
+//        this.strInput = str;
+//    }
+//
+//    output(){
+//        // 루프를 이용하여 문자열 2글자씩 출력한다.
+//        for(let i = 0; i < this.strInput.length-1 ; i++){
+//        console.log(this.strInput.charAt(i) + " " + this.strInput.charAt(i+1)); //charAt()가 문자열 받기
+//        }
+//    }
+//
+//}
+//let exam28 = new Ex28(prompt("문자열을 입력하세요."));
+//exam28.output();
 
-    constructor(str){
-        this.strInput = str;
+//37번 : 반장 선거
+//class Exam37 {
+//    arrItem = [];
+//    his.arrItem = input.split(" ");
+//    }
+//    checkVotes() {
+//
+//        for( let i = 0; i < this.arrItem.length; i++ ) {
+//            if ( this.isExistItem(this.arrItem[i]) ) {
+//                // map 에 원소이름의 키가 있을때 실행한다.
+//                let number = this.maps.get(this.arrItem[i]);
+//                // map 에서 원소이름이 키인 원래값을 가져온다.
+//                this.maps.set(this.arrItem[i], number + 1);
+//                // map 에 {원소이름: 원래값+1} 으로 저장 한다
+//                // this.maps.set( 키, 값 );
+//            } else {
+//                // map 에 원소이름의 키가 없을때 실행한다.
+//                this.maps.set(this.arrItem[i], 1);
+//                // map 에 {원소이름: 1} 으로 저장 한다
+//                // this.maps.set( 키, 값 );
+//            }
+//        }
+//        console.log(this.maps);
+//        console.log([...this.maps]);    // [... JavaScript Map, Set, Array] ===> 배열로 변환
+//        let item = [...this.maps].reduce( (a,b) =>  // Array reduce 사용
+//            a[1] >= b[1] ? a : b    // 앞의 원소 a[1] 값 >= 뒤의 원소 b[1] 값 보다 크면 a 를 리턴
+//        );
+//        return item;
+//        // return 가장 [1] 값이 큰 map 원소를 리턴한다.
+//    }
+//    isExistItem(item) {
+//        // 원소가 maps 에 키로 존재하면 true 를 리턴한다.
+//        return this.maps.has(item);
+//        // if ( this.maps.has(item) == true )
+//    }
+//}
+//// 원범 혜원 유빈 원범 혜원 곰 유빈 원범 곰 혜원 호랑이 혜원
+//let exam37 = new Exam37(prompt("투표할 항목을 공백으로 구분해서 입력하세요."));
+//let result = exam37.checkVotes();
+//console.log(`투표 결과 ${result[0]가 ${result[1]}표로 가장 많습니다.}`);
+//console.log(`투표 결과 ${result[0]}가 ${result[1]}표로 가장 많습니다.`);
+
+//문제 42번
+//function solveExam42() {
+//    let year = document.getElementById("exam42_01").value;
+//    let month = document.getElementById("exam42_02").value;
+//    let date = document.getElementById("exam42_03").value;
+//
+//    if ( checkValidInputExam42(year, month, date) ) {
+//        let selectDay = new Date(year, month - 1, date);
+//        let arrDay = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+//        document.getElementById("exam42result").innerText = arrDay[selectDay.getDay()];
+//    }
+//}
+//
+//function checkValidInputExam42(year, month, date) {
+//    if ( year <= 0 || year >= 3000 ) {
+//        alert("년도는 1~2999년 으로 입력하세요.");
+//        return false;
+//    }
+//    if ( month <= 0 || month >= 13 ) {
+//        alert("월은 1~12 으로 입력하세요.");
+//        return false;
+//    }
+//    if ( date <= 0 || date >= 32 ) {
+//        alert("일은 1~31 으로 입력하세요.");
+//        return false;
+//    }
+//    return true;
+//}
+
+//문제 58번
+class Exam58{
+    strInput = "";
+    constructor(input) {
+        this.strInput = input;
     }
 
-    output(){
-        // 루프를 이용하여 문자열 2글자씩 출력한다.
-        for(let i = 0; i < this.strInput.length-1 ; i++){
-        console.log(this.strInput.charAt(i) + " " + this.strInput.charAt(i+1)); //charAt()가 문자열 받기
+    solve(){
+    let arrTemp = [...this.strInput].reverse().toString();
+    console.log(`exam58 solve : ${arrTemp}`);
+    let result = "";
+    for(let i = 0; i < arrTemp.length; i++){
+        if(i % 3 == 0){
+        result += ",";
         }
     }
 
+    }
 }
-let exam28 = new Ex28(prompt("문자열을 입력하세요."));
-exam28.output();
+
+function solveExam58() {
+    let number = document.getElementById("exam58_01").value;
+    let exam58 = new Exam58(number);
+    let result = exam58.solve();
+    document.getElementById("exam58result").innerText = result;
+}
+
+function solveExam59() {
+    let msg = document.getElementById("exam59_01").value;
+}
+
+
