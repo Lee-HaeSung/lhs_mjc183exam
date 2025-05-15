@@ -5,8 +5,8 @@ import com.mjc.studyjava.MyMathMathic;
 public class Main {
     public static void main(String[] args) {
 //        int a = 0;
-//        for(int i = 1; i <= 100; i++){
-//            if(i % 3 == 0){
+//        for (int i = 1; i <= 100; i++) {
+//            if (i % 3 == 0) {
 //                a += i;
 //            }
 //        }
@@ -33,5 +33,5 @@ public class Main {
 //        System.out.print("\n");
 //    }
 //------------------------------Ch4-7번------------------------------
-
+    }
 }
