@@ -27,13 +27,13 @@ public class JavaChap04Exam {
         return s;
     }
 
-    public String solve06() {
+    public void solve06() {
         for(int i = 0; i <= 4; i++){
             for(int j = 0; j <= i; j++){
                 System.out.print("*");
             }
         }
         String s = "결과입니다.";
-        return s;
     }
 }
+

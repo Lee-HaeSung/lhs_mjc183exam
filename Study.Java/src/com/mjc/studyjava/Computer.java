@@ -1,11 +1,52 @@
 package com.mjc.studyjava;
 
 public class Computer {
-    String comName = "";
-    String comCPU = "";
-    String comRam = "";
-    String comStorage = "";
-    String comGraphic = "";
+    private String comName = "Computer";
+    private String comCPU;
+    private String comRam;
+    private String comStorage;
+    private String comGraphic;
+    private Mouse mouse;
+
+    public Computer() {
+        mouse = new Mouse();
+    }
+
+    public void moveMouse(int x, int y){
+        mouse.moveMouse(x, y);
+    }
+
+
+    public void clickLeft() {
+        mouse.LeftClick();
+    }
+
+    public void clickRight() {
+        mouse.RightClick();
+    }
+
+
+    public Computer(String a){
+        comName = a;
+    }
+
+    public Computer(String a,String b){
+        comName = a;
+        comCPU = b;
+    }
+
+    public Computer(String a,String b,String c){
+        comName = a;
+        comCPU = b;
+        comRam = c;
+    }
+
+    public Computer(String a,String b,String c,String d){
+        comName = a;
+        comCPU = b;
+        comRam = c;
+        comStorage = d;
+    }
 
     public Computer(String a,String b,String c,String d,String e){
         comName = a;
@@ -16,7 +57,7 @@ public class Computer {
     }
 
     public void comOn(){
-        System.out.println(comName + "가 켜졌습니다.");
+        System.out.println("\n" + comName + "가 켜졌습니다.");
     }
 
     public void comOff(){
@@ -24,29 +65,49 @@ public class Computer {
     }
 
     public void information(){
-        System.out.println("CPU : " + comCPU);
-        System.out.println("RAM : " + comRam);
-        System.out.println("Storage : " + comStorage);
-        System.out.println("Graphic : " + comGraphic);
+        if (comCPU == null){
+            System.out.println("CPU : 조립중입니다.");
+        }
+        else {
+            System.out.println("CPU : " + comCPU);
+        }
+        if (comRam == null){
+            System.out.println("Ram : 조립중입니다.");
+        }
+        else {
+            System.out.println("RAM : " + comRam);
+        }
+        if (comStorage == null){
+            System.out.println("Storage : 조립중입니다.");
+        }
+        else {
+            System.out.println("Storage : " + comStorage);
+        }
+        if (comGraphic == null){
+            System.out.println("Graphic : 조립중입니다.");
+        }
+        else {
+            System.out.println("Graphic : " + comGraphic);
+        }
     }
 
     public static void main(String[] args){
-        Computer c1 = new Computer("트랄랄레로","Gen9_i9","16GB","SSD 1000GB","RTX_4080");
+        Computer c1 = new Computer("트랄랄레로");
         c1.comOn();
         c1.information();
         c1.comOff();
 
-        Computer c2 = new Computer("봄바르딜로크로코딜로","Gen9_i5","32GB","SSD 2000GB","RTX_4080");
+        Computer c2 = new Computer("봄바르딜로크로코딜로","Gen9_i5","32GB");
         c2.comOn();
         c2.information();
         c2.comOff();
 
-        Computer c3 = new Computer("퉁퉁퉁퉁퉁사후르","Gen9_i7","8GB","SSD 1000GB","Intel_A770");
+        Computer c3 = new Computer("퉁퉁퉁퉁퉁사후르","Gen9_i7");
         c3.comOn();
         c3.information();
         c3.comOff();
 
-        Computer c4 = new Computer("리릴리라릴라","Gen9_i9","16GB","SSD 1000GB","GTX_1660");
+        Computer c4 = new Computer("리릴리라릴라","Gen9_i9","16GB","SSD 1000GB");
         c4.comOn();
         c4.information();
         c4.comOff();
@@ -55,6 +116,13 @@ public class Computer {
         c5.comOn();
         c5.information();
         c5.comOff();
+
+        Computer ms = new Computer();
+        ms.moveMouse(200,400);
+        ms.clickLeft();
+        ms.moveMouse(600,800);
+        ms.clickRight();
+
     }
 }
 
