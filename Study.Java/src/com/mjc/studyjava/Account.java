@@ -15,19 +15,19 @@ public class Account {
         this.balance = balance;
     }
 
-    public static void main(String[] args) {
-        Account account = new Account();
-
-        account.setBalnce(10000);
-        System.out.println("현재 잔고 : " + account.getBalance());
-
-        account.setBalnce(-100);
-        System.out.println("현재 잔고 : " + account.getBalance());
-
-        account.setBalnce(2000000);
-        System.out.println("현재 잔고 : " + account.getBalance());
-
-        account.setBalnce(300000);
-        System.out.println("현재 잔고 : " + account.getBalance());
-    }
+//    public static void main(String[] args) {
+//        Account account = new Account();
+//
+//        account.setBalnce(10000);
+//        System.out.println("현재 잔고 : " + account.getBalance());
+//
+//        account.setBalnce(-100);
+//        System.out.println("현재 잔고 : " + account.getBalance());
+//
+//        account.setBalnce(2000000);
+//        System.out.println("현재 잔고 : " + account.getBalance());
+//
+//        account.setBalnce(300000);
+//        System.out.println("현재 잔고 : " + account.getBalance());
+//    }
 }
