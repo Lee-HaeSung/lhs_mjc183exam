@@ -1,10 +1,9 @@
-package com.lhs.information;
+package com.mjc.hs_library;
 
-import com.mjc.hs_library.MjcValidCheck;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class TestBro {
+public class TestMjcValidCheck {
     @Test
     public void TestHSbro(){
         MjcValidCheck testMvc = new MjcValidCheck();

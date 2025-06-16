@@ -1,5 +1,8 @@
 package com.mjc.studyjava;
 
+import java.awt.*;
+import java.util.concurrent.CountDownLatch;
+
 public class Computer {
     private String comName = "Computer";
     private String comCPU;
@@ -7,6 +10,51 @@ public class Computer {
     private String comStorage;
     private String comGraphic;
     private Mouse mouse;
+    private ECpu cpu;
+    private ERam ram;
+    private EStorage storage;
+    private EGraphicCard graphicCard;
+
+
+
+    public enum ECpu{
+        Gen9_i5,
+        Gen9_i7,
+        Gen9_i9,
+    }
+
+    public enum ERam{
+        RAM_4GB(4),
+        RAM_8GB(8),
+        RAM_16GB(16),
+        RAM_32GB(32);
+
+        private int value;
+        ERam(int val) {
+            this.value = val;
+        }
+        public int getValue() {
+            return this.value;
+        }
+    }
+
+    public enum EStorage{
+        SSD_500GB,
+        SSD_1000GB,
+        SSD_2000GB,
+        HDD_500GB,
+        HDD_1000GB,
+        HDD_2000GB,
+    }
+
+    public enum EGraphicCard{
+        GTX_1660,
+        RTX_4080,
+        Intel_A770;
+    }
+
+
+
 
     public Computer() {
         mouse = new Mouse();
@@ -54,6 +102,22 @@ public class Computer {
         comRam = c;
         comStorage = d;
         comGraphic = e;
+    }
+
+    public Computer(String comName, ECpu cpu, ERam ram, EStorage storage, EGraphicCard graphicCard){
+        this.comName = comName;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.storage = storage;
+        this.graphicCard = graphicCard;
+    }
+
+    public void equal(){
+        if(cpu.equals(ram) && ram.equals(storage) && storage.equals(graphicCard)){
+            System.out.println("true");
+        }
+        else { System.out.println("false"); }
+
     }
 
     public void comOn(){
@@ -122,6 +186,9 @@ public class Computer {
         ms.clickLeft();
         ms.moveMouse(600,800);
         ms.clickRight();
+
+        Computer c6 = new Computer("카푸피노 아싸시노", "Gen9_i5", "Gen9_i5","Gen9_i5","Gen9_i5");
+        c6.equal();
 
     }
 }
