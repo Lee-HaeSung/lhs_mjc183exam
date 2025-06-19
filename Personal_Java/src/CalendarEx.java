@@ -39,6 +39,6 @@ public class CalendarEx {
         System.out.println(strAmPm + " ");
         System.out.println(hour + "시 ");
         System.out.println(minute + "분 ");
-        System.out.println(second + "초 ");
+        System.out.println(second    + "초 ");
     }
 }
