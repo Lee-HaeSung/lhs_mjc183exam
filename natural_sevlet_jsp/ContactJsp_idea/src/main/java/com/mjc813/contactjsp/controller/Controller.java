@@ -54,9 +54,14 @@ public class Controller extends HttpServlet {
 		case "/home" :
 			site = "index.jsp";
 			break;
-		
+
+
 		case "/list" :			
 			site = dao.selectAll(request, response);
+			break;
+
+		case "/add" :
+			site = "add.jsp";
 			break;
 			
 		case "/insert" :		

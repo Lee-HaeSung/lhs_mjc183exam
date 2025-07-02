@@ -94,7 +94,7 @@ public class ContactMysqlDAO {
 		try {
 			conn = getConnection();
 			/// prepareStatement는 순서에 따라 값이 등록된다.
-			String sql = "INSERT INTO contact_tbl VALUES(?,?,?,?)";
+			String sql = "INSERT INTO contact_tbl(name, phoneNumber, zipNumber, email) VALUES(?,?,?,?)";
 			ps = conn.prepareStatement(sql);
 
 			/// sql Insert, Update 쿼리가 실행될때 저장할 값을 1번부터 7번까지 설정하여 sql 쿼리문장을 만든다.
