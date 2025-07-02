@@ -7,7 +7,7 @@ request.setCharacterEncoding("UTF-8");
 ArrayList<ContactDto>list = new ArrayList<ContactDto>();
 list = (ArrayList<ContactDto>)request.getAttribute("list");
 		
-int id = list.get(0).getId();
+Integer id = list.get(0).getId();
 String name = list.get(0).getName();
 String phoneNumber = list.get(0).getPhoneNumber();
 String zipNumber = list.get(0).getZipNumber();

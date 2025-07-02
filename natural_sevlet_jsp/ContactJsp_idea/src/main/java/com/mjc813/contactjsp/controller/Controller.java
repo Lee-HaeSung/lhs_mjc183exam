@@ -69,7 +69,7 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/modify" :		
-//			site = dao.modify(request, response);
+			site = dao.modify(request, response);
 			break;
 			
 		case "/update" :

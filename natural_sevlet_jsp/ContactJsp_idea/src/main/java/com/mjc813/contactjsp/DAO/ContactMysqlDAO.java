@@ -79,6 +79,49 @@ public class ContactMysqlDAO {
 		return "list.jsp";
 	}
 
+	public String modify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<ContactDto>list = new ArrayList<ContactDto>();
+		try {
+			conn = getConnection();
+			int id = Integer.parseInt(request.getParameter("id"));
+			/// 수정할 회원정보 가져오기
+			String sql = " SELECT ";
+			       sql+= " id, ";
+			       sql+= " name, ";
+			       sql+= " phoneNumber, ";
+			       sql+= " zipNumber, ";
+			       sql+= " email";
+			       sql+= " FROM contact_tbl WHERE id ="+id;
+			System.out.printf("selectAll : sql=%s\n", sql);
+			/// 로그가 없으므로 콘솔에 출력했다
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				/// sql 쿼리가 리턴하는 행 수 만큼 while 문을 반복한다.
+				ContactDto contactDto = new ContactDto();
+				contactDto.setId(id);
+				contactDto.setName(rs.getString(2));
+				contactDto.setPhoneNumber(rs.getString(3));
+				contactDto.setZipNumber(rs.getString(4));
+				contactDto.setEmail(rs.getString(5));
+				list.add(contactDto);
+			}
+			request.setAttribute("list",list);
+			/// modify.jsp 8 라인의 list = (ArrayList<MemberDto>)request.getAttribute("list"); 값으로 치환되어 list 배열에 저장
+			/// modify.jsp 10~16 라인의 list 배열 0 index 변수의 값을 화면에 출력하는데 사용됨
+
+			conn.close();
+			ps.close();
+			rs.close();
+			/// RDBMS 접속하고 사용 했었던 자원을 해제해야 한다. 이거 안하면 자원 누수로 나중에 프로그램 뻗었었음
+		}
+		catch(Exception e) {
+				e.printStackTrace();
+			}
+		return "modify.jsp";
+
+	}
+
 	/*
 	 * request : http 클라이언트 요청에 대한 정보가 해당 객체로 전달 된다.
 	 * response : http 클라이언트의 응답에 대한 정보가 반환 된다.
