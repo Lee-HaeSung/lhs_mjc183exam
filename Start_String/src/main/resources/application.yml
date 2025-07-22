@@ -1,0 +1,13 @@
+#spring boot 설정값 저장
+spring:
+  application:
+    name: Start_String
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    

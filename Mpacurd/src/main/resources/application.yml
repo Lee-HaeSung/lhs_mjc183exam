@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: Mpacrud
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mpacurd_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: mpauser
+    password: 1q2w3e4r!
+  mustache:
+    suffix: .html
+    enabled: true
+    charset: UTF-8
+
+
+server:
+  port: 8088
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+mybatis:
+  mapper-locations: clsspath:mapper/**/*.xml
+  type-aliases-package: com.LhsSpring.mpacurd
+  configuration:
+    map-underscore-to-camel-case: true

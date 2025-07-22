@@ -33,4 +33,8 @@ INNER JOIN contact_tbl ct
 WHERE lt2.start_dt <= '2025-06-01'
 ORDER BY start_dt
 ;
+
+SELECT lecture_id, contact_id FROM learn_tbl
+GROUP BY lecture_id, contact_id
+ORDER BY lecture_id, contact_id;
 	
