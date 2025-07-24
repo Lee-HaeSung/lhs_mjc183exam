@@ -27,6 +27,16 @@
         WHERE id = #{id}
     </select>
 
+    <select id="selectAll" resultType="CoffeeDto">
+        SELECT id
+             , name
+             , price
+             , source
+             , shot
+        FROM coffee_tbl
+        ORDER BY id DESC
+    </select>
+
     <update id="update" parameterType="CoffeeDto">
         UPDATE coffee_tbl SET
                             name = #{name}
@@ -35,4 +45,9 @@
                              , shot = #{shot}
         WHERE id = #{id}
     </update>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM coffee_tbl
+        WHERE id = #{id}
+    </delete>
 </mapper>

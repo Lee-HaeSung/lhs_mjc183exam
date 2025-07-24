@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>연락처 보기</title>
+</head>
+<body>
+<h1>메뉴 보기</h1>
+{{#CoffeeDto}}
+<span>ID</span>
+<div>{{id}}</div>
+<span>메뉴 이름</span>
+<div>{{name}}</div>
+<span>가격</span>
+<div>{{price}}</div>
+<span>원산지</span>
+<div>{{source}}</div>
+<span>샷 추가 여부</span>
+<div>{{shot}}</div>
+<a href="./modify?id={{id}}"><button>수정</button></a>
+<form id="" name="" method="post" action="./delete">
+  <input type="hidden" name="id" value="{{id}}" />
+  <input type="submit" value="삭제" />
+</form>
+{{/CoffeeDto}}
+{{^CoffeeDto}}
+<div>데이터가 없습니다.</div>
+{{/CoffeeDto}}
+</body>
+</html>

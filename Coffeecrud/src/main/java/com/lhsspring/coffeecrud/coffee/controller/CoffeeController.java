@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class CoffeeController {
 
@@ -37,11 +39,11 @@ public class CoffeeController {
         return "redirect:/coffee/menu";
     }
 
-    @GetMapping("/view")
+    @GetMapping("coffee/view")
     public String view(@RequestParam("id") int id, Model model) {
         try {
             CoffeeDto result = this.coffeeRepository.selectOne(id);
-            model.addAttribute("coffee", result);
+            model.addAttribute("CoffeeDto", result);
         } catch (Throwable e){
             System.out.println(e.toString());
         }
@@ -70,5 +72,22 @@ public class CoffeeController {
         return "redirect:/";// 정상 실행하면 redirect:/contact/list
     }
 
+    @PostMapping("/coffee/delete")
+    public String delete(@ModelAttribute CoffeeDto obj) {
+        this.coffeeRepository.deleteById(obj.getId());
+        return "redirect:/";
+    }
 
+    @GetMapping("coffee/list")
+    public String selectAll(Model model
+    ) {
+        List<CoffeeDto> contacts = null;
+        try {
+            contacts = this.coffeeRepository.selectAll();
+        } catch (Throwable e) {
+            System.out.println(e.toString());
+        }
+        model.addAttribute("contacts", contacts);
+        return "coffee/list";
+    }
 }
