@@ -13,4 +13,12 @@ public class CoffeeRepository {
         this.coffeeMybatisMapper.insert(menu);
         return menu;
     }
+
+    public CoffeeDto selectOne(int id) {
+        return this.coffeeMybatisMapper.selectOne(id);
+    }
+
+    public void update(CoffeeDto coffeeDto) {
+        this.coffeeMybatisMapper.update(coffeeDto);
+}
 }

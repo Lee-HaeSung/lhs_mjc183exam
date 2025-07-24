@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴 수정</title>
+</head>
+<body>
+<h1>메뉴 수정</h1>
+{{#CoffeeDto}}
+<form id="updateForm" name="updateForm" method="post" action="./update">
+    <label for="id">ID</label>
+    <input type="text" id="id" name="id" value="{{id}}" readonly/>
+    <label for="name">메뉴 이름</label>
+    <input type="text" id="name" name="name" value="{{name}}" maxlength="30"/>
+    <label for="price">가격</label>
+    <input type="text" id="price" name="price" value="{{price}}" maxlength="30"/>
+    <label for="source">원산지</label>
+    <input type="text" id="source" name="source" value="{{source}}" maxlength="20"/>
+    <label for="shot">샷 추가 여부</label>
+    <input type="text" id="shot" name="shot" value="{{shot}}" maxlength="200"/>
+    <input type="submit" value="확인" />
+</form>
+{{/CoffeeDto}}
+</body>
+</html>

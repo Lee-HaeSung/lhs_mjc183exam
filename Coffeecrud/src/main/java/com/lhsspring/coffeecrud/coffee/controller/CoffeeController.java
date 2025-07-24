@@ -4,9 +4,11 @@ import com.lhsspring.coffeecrud.coffee.dto.CoffeeDto;
 import com.lhsspring.coffeecrud.coffee.service.CoffeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CoffeeController {
@@ -32,7 +34,41 @@ public class CoffeeController {
         } catch (Throwable e){
             System.out.println(e.toString());
         }
-        return "redirect:/";
+        return "redirect:/coffee/menu";
     }
+
+    @GetMapping("/view")
+    public String view(@RequestParam("id") int id, Model model) {
+        try {
+            CoffeeDto result = this.coffeeRepository.selectOne(id);
+            model.addAttribute("coffee", result);
+        } catch (Throwable e){
+            System.out.println(e.toString());
+        }
+        return "coffee/view";
+    }
+
+    @GetMapping("coffee/modify")
+    public String modify(@RequestParam("id") int id, Model model){
+        try {
+            CoffeeDto result = this.coffeeRepository.selectOne(id);
+            model.addAttribute("CoffeeDto", result);
+        }   catch (Throwable e){
+            System.out.println(e.toString());
+        }
+        return "coffee/modify";
+    }
+
+    @PostMapping("coffee/update")
+    public String update(@ModelAttribute CoffeeDto coffeeDto) {
+        try {
+            // sql 의 update 문장을 실행한다.
+            this.coffeeRepository.update(coffeeDto);
+        } catch (Throwable e) {
+            System.out.println(e.toString());
+        }
+        return "redirect:/";// 정상 실행하면 redirect:/contact/list
+    }
+
 
 }

@@ -16,4 +16,23 @@
                  , #{shot}
                  )
     </insert>
+
+    <select id="selectOne" resultType="CoffeeDto" parameterType="int">
+        SELECT id
+             , name
+             , price
+             , source
+             , shot
+        FROM coffee_tbl
+        WHERE id = #{id}
+    </select>
+
+    <update id="update" parameterType="CoffeeDto">
+        UPDATE coffee_tbl SET
+                            name = #{name}
+                            , price = #{price}
+                            , source = #{source}
+                             , shot = #{shot}
+        WHERE id = #{id}
+    </update>
 </mapper>
