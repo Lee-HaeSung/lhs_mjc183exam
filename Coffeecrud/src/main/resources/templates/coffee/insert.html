@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[디자이너리] 신 메뉴 추가</title>
+</head>
+<body>
+<br/>
+<br/>
+    <h1 style="text-align: center">신메뉴를 추가하세요</h1><br/><br/>
+    <form style="text-align: center" id = "formInput" name = "formInput" method = "post" action="./insert">
+        <label for = "name">메뉴 이름 : </label>
+        <input type="text" id = "name" name="name" value="" maxlength="30"/><br/>
+        <label for="price"> 가격 : </label>
+        <input type="number" id="price" name="price" value="" maxlength="30" /><br/>
+        <label for="source">원산지 : </label>
+        <input type="text" id="source" name="source" value="" maxlength="20" /><br/>
+        <label for="shot">샷 추가 여부 : </label>
+        <input type="text" id="shot" name="shot" value="" maxlength="5" /><br/>
+        <input type="submit" value="추가" />
+        <input type="submit" value="취소" />
+    </form>
+</body>
+</html>
