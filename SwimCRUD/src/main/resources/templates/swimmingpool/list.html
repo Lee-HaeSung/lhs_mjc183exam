@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수영장 정보 목록</title>
+</head>
+<body>
+    <h1>수영자 정보 목록</h1>
+    <div>
+        <div>수영장 이름 : </div>
+        <div>전화번호 : </div>
+        <div>레인형태 : </div>
+        <div>레인수 : </div>
+    </div>
+    {{#list}}
+    <div>
+        <div>{{name}}</div>
+        <div>{{phoneNumber}}</div>
+        <div>{{laneType}}</div>
+        <div>{[lanes}}</div>
+    </div>
+    {{/list}}
+</body>
+</html>

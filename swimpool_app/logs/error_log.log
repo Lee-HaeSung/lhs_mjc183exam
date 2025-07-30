@@ -1,0 +1,6 @@
+ERROR 25-07-30 11:42:24[http-nio-8084-exec-6] [SwimpoolApiController:148] - org.mybatis.spring.MyBatisSystemException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+### The error may exist in file [C:\Users\MJC\Documents\GitHub\lhs_mjc183exam\swimpool_app\build\resources\main\mapper\swimpool\swimpool_mysql.xml]
+### The error may involve com.mjc813.swimpool_app.swimpool.service.SwimpoolMapper.countByWhere
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
