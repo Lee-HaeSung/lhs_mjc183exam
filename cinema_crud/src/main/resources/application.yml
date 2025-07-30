@@ -4,8 +4,12 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username:
-    password:
+    username: mysql/?????
+    password: mysql/?????
+  mustache:
+    suffix: .html
+    servlet:
+      cache: false
 
 server:
-  port: 8088
+  port: 8880
