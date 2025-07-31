@@ -3,9 +3,9 @@ spring:
     name: cinema_crud
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: mysql/?????
-    password: mysql/?????
+    url: jdbc:mysql://localhost:3306/cinema_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: cinema_user
+    password: 1q2w3e4r!
   mustache:
     suffix: .html
     servlet:
@@ -13,3 +13,9 @@ spring:
 
 server:
   port: 8880
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.lhsspring.cinema_crud
+  configuration:
+    map-underscore-to-camel-case: true
