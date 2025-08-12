@@ -1,5 +1,6 @@
 package com.mjc813.food_web.ingredient.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mjc813.food_web.common.IIdName;
 import com.mjc813.food_web.ingredient_category.dto.IngredientCategoryEntity;
 import jakarta.persistence.*;
@@ -23,8 +24,9 @@ public class IngredientEntity implements IIngredient {
     @Transient
     private Long ingredientCategoryId;
 
+//    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "ingredient_category_id")
+    @JoinColumn(name = "ingredient_category_id", nullable = false)
     private IngredientCategoryEntity ingredientCategoryEntity;
 
     @Override

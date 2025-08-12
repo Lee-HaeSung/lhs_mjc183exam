@@ -1,5 +1,6 @@
 package com.mjc813.food_web.food.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mjc813.food_web.common.IIdName;
 import com.mjc813.food_web.food_category.dto.FoodCategoryDto;
 import com.mjc813.food_web.food_category.dto.FoodCategoryEntity;
@@ -31,58 +32,60 @@ public class FoodEntity implements IFood {
     private Integer sourLevel;
     private Integer saltyLevel;
 
-    @Transient
-    private Long ingredientId;  // @Entity 는 Long 형의 외래키 id 를 사용하지 않습니다. IFood 이라는 인터페이스 때문에 등장
+//    @Transient
+//    private Long ingredientId;  // @Entity 는 Long 형의 외래키 id 를 사용하지 않습니다. IFood 이라는 인터페이스 때문에 등장
+
+////    @JsonIgnore
+//    @ManyToOne
+//    @JoinColumn(name = "ingredient_id")
+//    private IngredientEntity ingredientEntity;
 
     @Transient
     private Long foodCategoryId;    //  @Entity 는 Long 형의 외래키 id 를 사용하지 않습니다. IFood 이라는 인터페이스 때문에 등장
 
-    @ManyToOne
-    @JoinColumn(name = "ingredient_id")
-    private IngredientEntity ingredientEntity;
-
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "food_category_id")
     private FoodCategoryEntity foodCategoryEntity;
 
-    @Override
-    public Long getIngredientId() {
-        // Long ingredientId 값과 IngredientEntity ingredientEntity.getId() 값이 항상 같도록 get 하는 기능
-        if (this.ingredientEntity == null) {
-            this.ingredientEntity = new IngredientEntity();
-        }
-        return this.ingredientEntity.getId();
-    }
-
-    @Override
-    public void setIngredientId(Long ingredientId) {
-        // Long ingredientId 값과 IngredientEntity ingredientEntity.getId() 값이 항상 같도록 set 하는 기능
-        if (ingredientId == null) {
-            return;
-        }
-        if (this.ingredientEntity == null) {
-            this.ingredientEntity = new IngredientEntity();
-        }
-        this.ingredientEntity.setId(ingredientId);
-        this.ingredientId = ingredientId;
-    }
-
-
-    @Override
-    public IIngredient getIngredient() {
-        return this.ingredientEntity;
-    }
-
-    @Override
-    public void setIngredient(IIngredient iIngredient) {
-        if ( iIngredient == null ) {
-            return;
-        }
-        if ( this.ingredientEntity == null ) {
-            this.ingredientEntity = new IngredientEntity();
-        }
-        this.ingredientEntity.copyMembersIngredient(iIngredient);
-    }
+//    @Override
+//    public Long getIngredientId() {
+//        // Long ingredientId 값과 IngredientEntity ingredientEntity.getId() 값이 항상 같도록 get 하는 기능
+//        if (this.ingredientEntity == null) {
+//            this.ingredientEntity = new IngredientEntity();
+//        }
+//        return this.ingredientEntity.getId();
+//    }
+//
+//    @Override
+//    public void setIngredientId(Long ingredientId) {
+//        // Long ingredientId 값과 IngredientEntity ingredientEntity.getId() 값이 항상 같도록 set 하는 기능
+//        if (ingredientId == null) {
+//            return;
+//        }
+//        if (this.ingredientEntity == null) {
+//            this.ingredientEntity = new IngredientEntity();
+//        }
+//        this.ingredientEntity.setId(ingredientId);
+//        this.ingredientId = ingredientId;
+//    }
+//
+//
+//    @Override
+//    public IIngredient getIngredient() {
+//        return this.ingredientEntity;
+//    }
+//
+//    @Override
+//    public void setIngredient(IIngredient iIngredient) {
+//        if ( iIngredient == null ) {
+//            return;
+//        }
+//        if ( this.ingredientEntity == null ) {
+//            this.ingredientEntity = new IngredientEntity();
+//        }
+//        this.ingredientEntity.copyMembersIngredient(iIngredient);
+//    }
 
     @Override
     public IIdName getFoodCategory() {

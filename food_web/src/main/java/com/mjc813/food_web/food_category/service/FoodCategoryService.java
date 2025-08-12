@@ -5,6 +5,8 @@ import com.mjc813.food_web.food_category.dto.FoodCategoryDto;
 import com.mjc813.food_web.food_category.dto.FoodCategoryEntity;
 import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,7 +70,7 @@ public class FoodCategoryService {
     }
 
     public List<IIdName> findAllRepository() {
-        List<FoodCategoryEntity> all = this.repository.findAll();
+        List<FoodCategoryEntity> all = this.repository.findAllByOrderByIdDesc();
         List<IIdName> result = all.parallelStream()
                 .map(x -> (IIdName)x).toList();
         return result;
@@ -80,4 +82,16 @@ public class FoodCategoryService {
                 .map(x -> (IIdName)x).toList();
         return result;
     }
+
+    public Page<FoodCategoryEntity> findByNameContainsRepository(String name, Pageable pageable) {
+        Page<FoodCategoryEntity> list = this.repository.findByNameContains(name, pageable);
+        return list;
+    }
+
+//    public List<IIdName> findByNameContainsMybatis(String name, Pageable pageable) {
+//        List<FoodCategoryDto> list = this.mapper.findByNameContains(name, pageable);
+//        List<IIdName> result = list.parallelStream()
+//                .map(x -> (IIdName)x).toList();
+//        return result;
+//    }
 }

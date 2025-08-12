@@ -1,11 +1,13 @@
 package com.mjc813.food_web.ingredient.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mjc813.food_web.common.IIdName;
 
 public interface IIngredient extends IIdName {
     Long getIngredientCategoryId();
     void setIngredientCategoryId(Long ingredientCategoryId);
 
+    @JsonIgnore
     IIdName getIngredientCategory();
     void setIngredientCategory(IIdName ingredientCategory);
 

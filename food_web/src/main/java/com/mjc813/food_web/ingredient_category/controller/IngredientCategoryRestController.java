@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/ingredient_category")
+@RequestMapping("/api/v1/ingredient_category")
 public class IngredientCategoryRestController extends CommonRestController {
     @Autowired
     private IngredientCategoryService IngredientCategoryService;

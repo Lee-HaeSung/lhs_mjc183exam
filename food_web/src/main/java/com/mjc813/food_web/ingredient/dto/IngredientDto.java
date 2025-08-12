@@ -1,5 +1,6 @@
 package com.mjc813.food_web.ingredient.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mjc813.food_web.common.IIdName;
 import com.mjc813.food_web.ingredient_category.dto.IngredientCategoryDto;
 import lombok.*;
@@ -14,7 +15,9 @@ public class IngredientDto implements IIngredient {
     private String name;
 
     private Long ingredientCategoryId;
-    private IngredientCategoryDto ingredientCategoryDto;
+
+    @JsonIgnore
+    private IngredientCategoryDto ingredientCategoryDto;    // Dto 는 객체를 사용하지 않습니다. IIngredient 인터페이스 때문에 등장
 
     @Override
     public IIdName getIngredientCategory() {
@@ -32,7 +35,9 @@ public class IngredientDto implements IIngredient {
     @Override
     public Long getIngredientCategoryId() {
         // Long ingredientCategoryId 값과 IngredientCategoryDto ingredientCategoryDto.getId() 값이 항상 같도록 get 하는 기능
-        this.setIngredientCategoryId(this.ingredientCategoryId);
+        if ( this.ingredientCategoryDto != null ) {
+            return this.ingredientCategoryDto.getId();
+        }
         return this.ingredientCategoryId;
     }
 
@@ -51,4 +56,19 @@ public class IngredientDto implements IIngredient {
         }
         this.ingredientCategoryDto.setId(ingredientCategoryId);
     }
+//
+//    private Long checkId() {
+//        if ( this.getIngredientCategoryDto() == null ) {
+//            this.ingredientCategoryDto = new IngredientCategoryDto();
+//            this.ingredientCategoryDto.setId(0L);
+//        }
+//        if ( this.ingredientCategoryId == null ) {
+//            this.ingredientCategoryId = 0L;
+//        }
+//        if ( this.ingredientCategoryId.equals(this.getIngredientCategoryDto().getId()) ) {
+//            return this.ingredientCategoryId;
+//        } else {
+//            return 0L;
+//        }
+//    }
 }

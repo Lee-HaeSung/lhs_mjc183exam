@@ -1,5 +1,6 @@
 package com.mjc813.food_web.food.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mjc813.food_web.common.IIdName;
 import com.mjc813.food_web.ingredient.dto.IIngredient;
 
@@ -16,15 +17,17 @@ public interface IFood extends IIdName {
     Integer getSaltyLevel();
     void setSaltyLevel(Integer saltyLevel);
 
-	Long getIngredientId();
-    void setIngredientId(Long ingredientId);
-
-    IIngredient getIngredient();
-    void setIngredient(IIngredient iIngredient);
+//	Long getIngredientId();
+//    void setIngredientId(Long ingredientId);
+//
+//    @JsonIgnore
+//    IIngredient getIngredient();
+//    void setIngredient(IIngredient iIngredient);
 
     Long getFoodCategoryId();
     void setFoodCategoryId(Long foodCategoryId);
 
+    @JsonIgnore
     IIdName getFoodCategory();
     void setFoodCategory(IIdName iIdName);
 
@@ -38,7 +41,7 @@ public interface IFood extends IIdName {
         this.setSourLevel(iFood.getSourLevel());
         this.setSaltyLevel(iFood.getSaltyLevel());
 
-        this.setIngredient(iFood.getIngredient());
+//        this.setIngredient(iFood.getIngredient());
         this.setFoodCategory(iFood.getFoodCategory());
     }
 }

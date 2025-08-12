@@ -16,6 +16,27 @@ public class ReferDto implements IRefer {
     private Long masterTableId;
     private MasterTable master;
 
-    public void copyMembers(ReferEntity entity) {
+//    public void copyMembers(ReferEntity vo) {
+//        this.id = vo.getId();
+//        this.name = vo.getName();
+//        this.masterTableId = vo.getMasterTableId();
+//        this.master = vo.getMaster();
+//    }
+
+    @Override
+    public Long getMasterTableId() {
+        if ( this.master == null ) {
+            this.master = new MasterTable();
+        }
+        return this.master.getId();
+    }
+
+    @Override
+    public void setMasterTableId(Long masterTableId) {
+        if ( this.master == null ) {
+            this.master = new MasterTable();
+        }
+        this.master.setId(masterTableId);
+        this.masterTableId = masterTableId;
     }
 }

@@ -5,9 +5,14 @@ import com.mjc813.food_web.common.IIdName;
 import com.mjc813.food_web.common.ResponseCode;
 import com.mjc813.food_web.common.ResponseDto;
 import com.mjc813.food_web.food_category.dto.FoodCategoryDto;
+import com.mjc813.food_web.food_category.dto.FoodCategoryEntity;
 import com.mjc813.food_web.food_category.service.FoodCategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -17,7 +22,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/food_category")
+@RequestMapping("/api/v1/food_category")
 public class FoodCategoryRestController extends CommonRestController {
     @Autowired
     private FoodCategoryService foodCategoryService;
@@ -89,4 +94,18 @@ public class FoodCategoryRestController extends CommonRestController {
         }
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<ResponseDto> findBySearch(
+            @RequestParam("name") String name
+            , @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC)
+            Pageable pageable) {
+        try {
+            Page<FoodCategoryEntity> all = this.foodCategoryService.findByNameContainsRepository(name, pageable);
+//            Page<FoodCategoryDto> all = this.foodCategoryService.findByNameContainsMybatis(name, pageable);
+            return this.getReponseEntity(ResponseCode.SUCCESS, "OK", all, null);
+        } catch (Throwable th) {
+            log.error(th.toString());
+            return this.getReponseEntity(ResponseCode.SELECT_FAIL, "Error", null, th);
+        }
+    }
 }

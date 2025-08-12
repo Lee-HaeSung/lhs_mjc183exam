@@ -68,7 +68,7 @@ public class IngredientCategoryService {
     }
 
     public List<IIdName> findAllRepository() {
-        List<IngredientCategoryEntity> all = this.repository.findAll();
+        List<IngredientCategoryEntity> all = this.repository.findAllByOrderByIdDesc();
         List<IIdName> result = all.parallelStream()
                 .map(x -> (IIdName)x).toList();
         return result;

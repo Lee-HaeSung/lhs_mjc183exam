@@ -16,6 +16,20 @@ public class ReferEntity implements IRefer {
     private Long masterTableId;
     private MasterTable master;
 
-    public void copyMembers(ReferDto dto) {
+    @Override
+    public Long getMasterTableId() {
+        if (this.master == null) {
+            this.master = new MasterTable();
+        }
+        return this.master.getId();
+    }
+
+    @Override
+    public void setMasterTableId(Long masterTableId) {
+        if (this.master == null) {
+            this.master = new MasterTable();
+        }
+        this.master.setId(masterTableId);
+        this.masterTableId = masterTableId;
     }
 }
