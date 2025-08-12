@@ -29,6 +29,5 @@ public class SongEntity {
     @Column(nullable = false, length = 50)
     private String artist;
 
-    @Column()
     private LocalDate releaseDate;
 }
